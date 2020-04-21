@@ -13,7 +13,7 @@ jQuery.getJSON(statesUrl, function (data) {
     }
   }
   var geojsonOptions = {
-  style: stateStyle,
-}
-  L.geoJSON(data, { style: stateStyle } }).addTo(USmap)
+    style: stateStyle
+  }
+  L.geoJSON(data, geojsonOptions).addTo(USmap)
 })
