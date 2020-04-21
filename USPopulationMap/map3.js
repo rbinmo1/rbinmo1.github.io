@@ -5,7 +5,7 @@ jQuery.getJSON(statesUrl, function (data) {
   var stateStyle = function (feature) {
     var age = feature.properties.MED_AGE
     var stateColor = 'olive'
-    if age < 38) { stateColor = 'green' }
+    if (age < 38) { stateColor = 'green' }
     return {
       color: stateColor,
       weight: 1,
