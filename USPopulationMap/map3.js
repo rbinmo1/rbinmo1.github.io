@@ -3,9 +3,9 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(USmap)
 var statesUrl = 'https://geog4046.github.io/assignment-resources/data/us_state_demographics_ESRI_2010A.geojson'
 jQuery.getJSON(statesUrl, function (data) {
   var stateStyle = function (feature) {
-    var age = feature.properties.MED_AGE
+    var CropArea = feature.properties.CROP_ACR12
     var stateColor = 'olive'
-    if (age < 38) { stateColor = 'green' }
+    if (CropArea < 1000000) { stateColor = 'green' }
     return {
       color: stateColor,
       weight: 1,
@@ -24,6 +24,6 @@ jQuery.getJSON(statesUrl, function (data) {
 
 var createPopup = function (feature, layer) {
   var name = feature.properties.STATE_NAME
-  var age = feature.properties.MED_AGE
-  layer.bindPopup('Median age of ' + name + ': ' + age + '<br>National average: 38')
+  var CropArea = feature.properties.CROP_ACR12
+  layer.bindPopup('CropArea ' + name + ': ' + CropArea + '<br>National average: 7793808 acres')
 }
