@@ -15,5 +15,15 @@ jQuery.getJSON(statesUrl, function (data) {
   var geojsonOptions = {
     style: stateStyle
   }
-  L.geoJSON(data, geojsonOptions).addTo(USmap)
+  var stateLayerOptions = {
+    style: stateStyle,
+    onEachFeature: createPopup
+}
+  L.geoJSON(data, stateLayerOptions).addTo(USmap)
 })
+
+var createPopup = function (feature, layer) {
+  var name = feature.properties.STATE_NAME
+  var age = feature.properties.MED_AGE
+  layer.bindPopup('Median age of ' + name + ': ' + age + '<br>National average: 38')
+}
