@@ -16,11 +16,9 @@ jQuery.getJSON(statesUrl, function (data) {
     return {
       color: stateColor,
       weight: 1,
-      fillOpacity: 0.2
+      fillOpacity: 0.2,
+      opacity: 1
     }
-  }
-  var geojsonOptions = {
-    style: stateStyle
   }
   var stateLayerOptions = {
     style: stateStyle,
